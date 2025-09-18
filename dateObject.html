@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var today = new Date(); //날짜 객체를 선언 Data date = new Date();
+        var nowYear = today.getFullYear(); //현재 연도
+        var nowMonth = today.getMonth(); //현재 월+1
+        var nowDate = today.getDate(); //현재 날짜
+        var nowDay = today.getDay(); //요일(일요일 : 0, 월요일 :1 ...)
+        
+        document.write("today : " + today, "<br>");
+        document.write("nowMonth : " + nowMonth, "<br>");
+        document.write("nowDate : " + nowDate, "<br>");
+        document.write("nowDay : " + nowDay, "<br>");
+        
+        //예약일(2025년 12월 25일)
+        var reservationDate = new Date(nowYear, 12-1, 25); //2025년 12월 25일 객체 생성
+        var diffDate = reservationDate.getTime() - today.getTime(); //남은 날짜->남은 밀리초
+        document.write("남은 날짜 : " + Math.ceil(diffDate / (1000*60*60*24)), "<br>");
+
+    </script>
+</body>
+</html>
