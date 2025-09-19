@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>비동기 방식 예제</title>
+</head>
+<body>
+    <script>
+        //동기 방식
+        // console.log("1번 작업");
+        // console.log("2번 작업(오래걸리는 작업)");
+        // console.log("3번 작업"); //2번 작업이 끝난 후에 실행
+        // console.log("모든 작업 끝!"); //2번 작업이 끝난 후에 실행
+
+        //비동기 방식(setTimeout 방식 사용)
+        // console.log("1번 작업");
+        // setTimeout(() => {
+        //     console.log("2번 작업(오래걸리는 작업)");
+        // },3000); 
+        // console.log("3번 작업"); //2번 작업이 끝난 후에 실행
+        // console.log("모든 작업 끝!"); //2번 작업이 끝난 후에 실행
+
+        //비동기 방식(promise 방식 사용)
+        // function promiseWait(ms) {
+        //     return new Promise(
+        //      (resolve) => {
+        //         setTimeout(() => {
+        //             resolve("2번 작업(오래걸리는 작업)");
+        //         }, ms);
+        //      }
+        //     )
+        // }
+
+        // console.log("1번 작업");
+        // promiseWait(3000).then((msg) => {
+        //     console.log(msg);
+        // });
+        // console.log("3번 작업"); //2번 작업이 끝난 후에 실행
+        // console.log("모든 작업 끝!"); //2번 작업이 끝난 후에 실행
+
+        //비동기 방식(async 함수와 await 키워드)
+        function promiseWait(ms) {
+            return new Promise(
+             (resolve) => {
+                setTimeout(() => {
+                    resolve("2번 작업(오래걸리는 작업)");
+                }, ms);
+             }
+            )
+        }
+
+        //async 함수->오래 걸리는 작업이 중간에 있음 표시
+        //await 키워드->끌날 때까지 기다렸다가 다음 줄 실행
+        async function run() { 
+            console.log("1번 작업");
+
+            const msg = await promiseWait(3000); //작업이 끝날때까지 넌 기다려야 한다!
+            console.log(msg);
+           
+        }
+
+        run();
+        console.log("3번 작업"); //2번 작업이 끝난 후에 실행
+        console.log("모든 작업 끝!"); //2번 작업이 끝난 후에 실행
+    </script>
+</body>
+</html>
