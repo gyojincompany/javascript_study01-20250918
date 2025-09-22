@@ -6,6 +6,11 @@
 <script src="js/jquery.js"></script>
 <script>
 $(function( ){
+	var topNum = $("h1").offset().top; //2000
+	console.log(topNum); //2000
+	var scroll1 = $(window).scrollTop(topNum);
+	//현재 세로 스크롤바 위치 가져오기->새로운 값으로 스크롤 바 위치 이동
+	console.log(scroll1); //800
 
 });
 </script>
@@ -15,6 +20,7 @@ $(function( ){
 	#wrap{
 			height:5000px;
 			padding-top:2000px;
+			border: 1px solid red;
 	}
 </style>
 </head>

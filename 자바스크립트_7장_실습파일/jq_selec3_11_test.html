@@ -6,6 +6,11 @@
 <script src="js/jquery.js"></script>
 <script>
 $(function( ){
+	var copyObj = $(".box1").children().clone();
+	//클래스 box1의 자식 요소들을 복제-><p>내용1</p><p>내용2</p> 복제		
+	$(".box2").remove(); //클래스 box2 요소 삭제->내용3, 내용4 삭제->box2 자체 삭제
+	$(".box3").empty(); //클래스 box3의 하위 요소만 삭제
+	$(".box3").append(copyObj); //<p>내용1</p><p>내용2</p> 붙여넣기
 
 });
 </script>
