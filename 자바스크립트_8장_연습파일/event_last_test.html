@@ -10,7 +10,22 @@
 <script src="js/jquery.js"></script>
 <script>
 $(function(){
-	var baseFontSize = 14;
+	var baseFontSize = 14; //초기 글꼴 크기값
+
+	$(".zoomBtnZone button").on("click", zoomInOut);
+	function zoomInOut() {
+		if($(this).hasClass("zoomOutBtn")) { //참이면 첫번째 - 버튼 클릭
+			baseFontSize--;
+		} else if($(this).hasClass("zoomInBtn")) { //참이면 세번째 + 버튼 클릭
+			baseFontSize++;
+		} else { //100% 버튼 클릭
+			baseFontSize = 14;
+		}
+		$(".fontSize").text(baseFontSize+"px");
+		$("#wrap").css("fontSize",baseFontSize+"px");
+
+	}
+
 
 });
 </script>
