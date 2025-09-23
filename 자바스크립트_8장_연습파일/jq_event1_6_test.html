@@ -6,7 +6,20 @@
 <script src="js/jquery.js"></script>
 <script>
 $(function( ) {
-	
+	$(".btn1").on({
+		"mouseover" : function() {
+			$(".txt1").css("background-color","red");
+		},
+		"mouseout" : function() {
+			$(".txt1").css("background","none"); //배경색 제거 방법
+		},
+	});
+
+	$(".btn2").hover(function() { //마우스가 올라왔을 때 이벤트 처리
+		$(".txt2").css("background-color","aqua");
+	}, function() { //마우스가 빠져나갔을 때 이벤트 처리
+		$(".txt2").css("background","none"); //배경색 제거 방법
+	});
 });
 </script>
 </head>

@@ -6,7 +6,18 @@
 <script src="js/jquery.js"></script>
 <script>
 $(function( ) {
-
+	$(".btn1").on("click", function(e){
+		e.preventDefault(); //이벤트 차단
+		$(".txt1").css("background-color","red");
+	});
+	$(".btn2").on("click", function(e){		
+		$(".txt2").css("background-color","green");
+		//이벤트 실행과 동시에 기본 이벤트 실행
+	});
+	$(".btn3").on("dblclick", function(e){		
+		$(".txt3").css("background-color","blue");
+		//버튼에 대한 더블클릭 이벤트 실행
+	});
 });
 </script>
 </head>
